@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>{{ year }}年{{ month }}月</h2>
+    <div class="calendar">
+        {{ calendar|safe }}
+    </div>
+    <a href="{% url 'add_expense' %}" class="btn btn-success mt-4">支出を登録する</a>
+</div>
+
+<style>
+.calendar {
+    overflow-x: auto;
+    margin-top: 20px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    text-align: center;
+    padding: 8px;
+    border: 1px solid #ccc;
+}
+
+/* スマホ対応 */
+@media (max-width: 576px) {
+    h2 {
+        font-size: 1.5rem;
+    }
+    .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    table {
+        font-size: 0.8rem;
+    }
+}
+</style>
+{% endblock %}
