@@ -14,8 +14,12 @@ from django.core.management import call_command
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'kakeibo_project.settings')
 
+# ===== ここから追加 =====
+import django
 django.setup()
-call_command('migrate')  # ← migrateを自動実行！
+from django.core.management import call_command
+call_command('migrate')
+# ===== ここまで追加 =====
 
 
 application = get_wsgi_application()
